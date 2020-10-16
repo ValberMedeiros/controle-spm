@@ -1,0 +1,17 @@
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (1, 'General de Exército', 'Gen Ex');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (2, 'General de Divisão', 'Gen Div');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (3, 'General de Brigada', 'Gen Bgda');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (4, 'Coronel', 'Cel');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, 'Tenente Coronel', 'Ten Cel');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, 'Major', 'Maj');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, 'Capitão', 'Cap');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, '1º Tenente', '1 Ten');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, '2º Tenente', '2 Ten');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, 'Aspirante', 'Aspirante');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, 'Subtenente', 'S Ten');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, '1º Sargento', '1 Sgt');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, '2º Sargento', '2 Sgt');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, '3º Sargento', '3 Sgt');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, 'Cabo', 'Cb');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, 'Soldado', 'Sd EP');
+INSERT INTO public.posto_grad(id, descricao, sigla)VALUES (5, 'Recruta', 'Sd EV');
