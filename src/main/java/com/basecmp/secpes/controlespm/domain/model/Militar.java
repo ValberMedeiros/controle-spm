@@ -1,9 +1,7 @@
 package com.basecmp.secpes.controlespm.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -32,6 +30,8 @@ public class Militar {
     private LocalDate dataPraca;
 
     private LocalDate dataLicenciamento;
+
+    private Boolean ativo;
 
     @ManyToOne
     private TipoMilitar tipoMilitar;
