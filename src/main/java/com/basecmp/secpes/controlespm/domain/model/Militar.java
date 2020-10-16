@@ -1,7 +1,9 @@
 package com.basecmp.secpes.controlespm.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -37,8 +39,16 @@ public class Militar {
     @ManyToOne
     private PostoGrad postoGrad;
 
-    @OneToMany
-    @JoinColumn(name = "militar_id")
-    private List<Promocao> promocaoes;
+
+    @ManyToMany
+    @JoinTable(
+            name = "militar_promocao",
+            joinColumns = @JoinColumn(name = "militar_id"),
+            inverseJoinColumns = @JoinColumn(name = "promocao_id")
+    )
+    private List<Promocao> promocoes;
+
+    @ManyToOne
+    private Companhia companhia;
 
 }

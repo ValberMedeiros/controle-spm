@@ -1,5 +1,6 @@
 package com.basecmp.secpes.controlespm.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,9 +20,5 @@ public class PostoGrad {
     private String sigla;
 
     private String descricao;
-
-    @OneToMany
-    @JoinColumn(name = "posto_grad_id")
-    private List<Militar> militares;
 
 }

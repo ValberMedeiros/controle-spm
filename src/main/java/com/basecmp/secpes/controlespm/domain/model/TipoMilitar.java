@@ -1,10 +1,10 @@
 package com.basecmp.secpes.controlespm.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -19,9 +19,5 @@ public class TipoMilitar {
     private String sigla;
 
     private String descricao;
-
-    @OneToMany
-    @JoinColumn(name = "tipo_militar_id")
-    private List<Militar> militares;
 
 }

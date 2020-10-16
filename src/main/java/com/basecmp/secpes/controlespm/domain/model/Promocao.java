@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -15,11 +16,9 @@ public class Promocao {
     @EqualsAndHashCode.Include
     private Long id;
 
-    private String sigla;
+    private LocalDate dataPromocao;
 
-    private String descricao;
-
-    @ManyToOne
-    private Militar militar;
+    @OneToOne
+    private PostoGrad postoGrad;
 
 }
