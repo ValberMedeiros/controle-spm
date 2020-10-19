@@ -1,5 +1,6 @@
 package com.basecmp.secpes.controlespm.domain.service;
 
+import com.basecmp.secpes.controlespm.domain.exception.CompanhiaNaoEncontradaException;
 import com.basecmp.secpes.controlespm.domain.exception.EntidadeEmUsoException;
 import com.basecmp.secpes.controlespm.domain.exception.EntidadeNaoEncontradaException;
 import com.basecmp.secpes.controlespm.domain.model.Companhia;
@@ -15,6 +16,7 @@ import java.util.List;
 @Service
 public class CadastroCompanhiaService {
 
+    public static final String MSG_COMPANHIA_EM_USO = "A companhia de código %d, não pode ser excluída pois está em uso";
     @Autowired
     private CompanhiaRepository companhiaRepository;
 
@@ -23,10 +25,8 @@ public class CadastroCompanhiaService {
     }
 
     public Companhia buscar (Long id) {
-        Companhia companhia = companhiaRepository.findById(id)
-                .orElseThrow(() -> new EntidadeNaoEncontradaException(
-                        String.format("Não foi possível encontrar uma companhia com o id %d.", id)
-                ));
+        Companhia companhia = buscarOuFalhar(id);
+
         return companhia;
     }
 
@@ -48,14 +48,19 @@ public class CadastroCompanhiaService {
         try {
             companhiaRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new EntidadeNaoEncontradaException(
-                    String.format("A companhia de código %d, não foi encontrada", id)
-            );
+            throw new CompanhiaNaoEncontradaException(id);
         } catch (DataIntegrityViolationException e) {
             throw new EntidadeEmUsoException(
-                    String.format("A companhia de código %d, não pode ser excluída pois está em uso", id)
+                    String.format(MSG_COMPANHIA_EM_USO, id)
             );
         }
+    }
+
+    public Companhia buscarOuFalhar(Long id) {
+        Companhia companhia = companhiaRepository.findById(id)
+                .orElseThrow(() -> new CompanhiaNaoEncontradaException(id));
+
+        return companhia;
     }
 
 }
